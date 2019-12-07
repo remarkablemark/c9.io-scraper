@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chromedriver": "78.0.1",
+    "dotenv": "8.2.0",
     "selenium-webdriver": "4.0.0-alpha.5"
   },
   "engines": {
