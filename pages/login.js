@@ -20,8 +20,6 @@ class LoginPage {
       return;
     }
 
-    require('dotenv').config();
-
     const username = await this.driver.findElement(this.USERNAME_INPUT_LOCATOR);
     await username.sendKeys(process.env.USERNAME);
 

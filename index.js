@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { Builder } = require('selenium-webdriver');
 
 const LoginPage = require('./pages/login');
