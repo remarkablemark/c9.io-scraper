@@ -1,7 +1,10 @@
-const { Key } = require('selenium-webdriver');
+const { Key, until } = require('selenium-webdriver');
 
 class LoginPage {
-  LOGIN_URL = 'https://c9.io/login';
+  BASE_URL = 'https://c9.io/';
+  LOGIN_URL = this.BASE_URL + 'login';
+  WORKSPACES_URL = this.BASE_URL + process.env.USERNAME;
+
   USERNAME_INPUT_LOCATOR = { id: 'id-username' };
   PASSWORD_INPUT_LOCATOR = { id: 'id-password' };
 
@@ -25,6 +28,8 @@ class LoginPage {
 
     const password = await this.driver.findElement(this.PASSWORD_INPUT_LOCATOR);
     await password.sendKeys(process.env.PASSWORD, Key.ENTER);
+
+    await this.driver.wait(until.urlIs(this.WORKSPACES_URL));
   }
 }
 
