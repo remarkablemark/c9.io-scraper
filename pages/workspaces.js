@@ -23,12 +23,15 @@ class WorkspacesPage {
 
     for (let prepareToDownloadButton of prepareToDownloadButtons) {
       await prepareToDownloadButton.click();
-      const modal = await driver.wait(until.elementLocated(MODAL_LOCATOR));
+      await driver.wait(until.elementLocated(MODAL_LOCATOR));
       const archiveButton = await driver.wait(
         until.elementLocated(ARCHIVE_BUTTON_LOCATOR),
       );
       await archiveButton.click();
-      await driver.wait(until.stalenessOf(modal));
+      await driver.wait(async () => {
+        const elements = await driver.findElements(MODAL_LOCATOR);
+        return elements.length === 0;
+      });
     }
   }
 }
