@@ -1,13 +1,13 @@
 const { until } = require('selenium-webdriver');
 
+const BASE_URL = 'https://c9.io/';
+const LOGIN_URL = BASE_URL + 'login';
+
+const USERNAME_INPUT_LOCATOR = { id: 'id-username' };
+const PASSWORD_INPUT_LOCATOR = { id: 'id-password' };
+const SUBMIT_BUTTON_LOCATOR = { css: 'button[type="submit"]' };
+
 class LoginPage {
-  BASE_URL = 'https://c9.io/';
-  LOGIN_URL = this.BASE_URL + 'login';
-
-  USERNAME_INPUT_LOCATOR = { id: 'id-username' };
-  PASSWORD_INPUT_LOCATOR = { id: 'id-password' };
-  SUBMIT_BUTTON_LOCATOR = { css: 'button[type="submit"]' };
-
   /**
    * @param {ThenableWebDriver} driver
    */
@@ -16,23 +16,24 @@ class LoginPage {
   }
 
   async login() {
-    await this.driver.get(this.LOGIN_URL);
+    const { driver } = this;
+    await driver.get(LOGIN_URL);
 
-    const currentUrl = await this.driver.getCurrentUrl();
-    if (currentUrl !== this.LOGIN_URL) {
+    const currentUrl = await driver.getCurrentUrl();
+    if (currentUrl !== LOGIN_URL) {
       return;
     }
 
-    const username = await this.driver.findElement(this.USERNAME_INPUT_LOCATOR);
+    const username = await driver.findElement(USERNAME_INPUT_LOCATOR);
     await username.sendKeys(process.env.USERNAME);
 
-    const password = await this.driver.findElement(this.PASSWORD_INPUT_LOCATOR);
+    const password = await driver.findElement(PASSWORD_INPUT_LOCATOR);
     await password.sendKeys(process.env.PASSWORD);
 
-    const submit = await this.driver.findElement(this.SUBMIT_BUTTON_LOCATOR);
+    const submit = await driver.findElement(SUBMIT_BUTTON_LOCATOR);
     await submit.click();
 
-    await this.driver.wait(until.titleIs(process.env.USERNAME));
+    await driver.wait(until.titleIs(process.env.USERNAME));
   }
 }
 
