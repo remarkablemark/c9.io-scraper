@@ -1,11 +1,11 @@
-const { until } = require('selenium-webdriver');
+const { By, until } = require('selenium-webdriver');
 
 const BASE_URL = 'https://c9.io/';
 const LOGIN_URL = BASE_URL + 'login';
 
-const USERNAME_INPUT_LOCATOR = { id: 'id-username' };
-const PASSWORD_INPUT_LOCATOR = { id: 'id-password' };
-const SUBMIT_BUTTON_LOCATOR = { css: 'button[type="submit"]' };
+const USERNAME_INPUT_LOCATOR = By.id('id-username');
+const PASSWORD_INPUT_LOCATOR = By.id('id-password');
+const SUBMIT_BUTTON_LOCATOR = By.css('button[type="submit"]');
 
 class LoginPage {
   /**
