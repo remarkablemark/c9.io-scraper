@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('chromedriver');
 
 const { Builder } = require('selenium-webdriver');
 
