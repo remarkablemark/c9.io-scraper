@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('chromedriver');
+require('./util/validate-environment')();
 
 const { Builder } = require('selenium-webdriver');
 
