@@ -1,7 +1,5 @@
 const { By, until } = require('selenium-webdriver');
 const { readdir } = require('fs').promises;
-const { homedir } = require('os');
-const { resolve } = require('path');
 
 const { saveDownloadedWorkspace } = require('../util');
 
@@ -13,8 +11,7 @@ const NEXT_LOCATOR = By.xpath('//span[contains(text(), "Next")]');
 const WORKSPACE_IMAGE_LOCATOR = By.xpath('//strong[text()="Workspace image"]');
 const DOWNLOAD_LOCATOR = By.xpath('//button[text()="Download"]');
 
-const DOWNLOADS_DIR =
-  process.env.DOWNLOADS_DIR || resolve(homedir(), 'Downloads');
+const { DOWNLOADS_DIR } = process.env;
 
 class DownloadPage {
   /**

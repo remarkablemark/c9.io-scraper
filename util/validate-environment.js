@@ -1,3 +1,6 @@
+const { accessSync } = require('fs');
+const { homedir } = require('os');
+const { resolve } = require('path');
 const semver = require('semver');
 
 /**
@@ -28,6 +31,12 @@ const validateEnvironment = () => {
   } else {
     console.log(`PASSWORD: ${'*'.repeat(process.env.PASSWORD.length)}`);
   }
+
+  if (!process.env.DOWNLOADS_DIR) {
+    process.env.DOWNLOADS_DIR = resolve(homedir(), 'Downloads');
+  }
+  accessSync(process.env.DOWNLOADS_DIR);
+  console.log(`DOWNLOADS_DIR: ${process.env.DOWNLOADS_DIR}`);
 };
 
 module.exports = validateEnvironment;
