@@ -54,4 +54,4 @@ Downloaded workspaces are recorded in `tmp/downloaded_workspaces.txt`.
 
 ## License
 
-MIT
+[MIT](LICENSE)
