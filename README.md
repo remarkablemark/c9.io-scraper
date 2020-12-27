@@ -9,7 +9,7 @@ Initial code is from [`webdriverjs-recipes`](https://github.com/remarkablemark/w
 - [Node.js 12+](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
 
-## Installation
+## Install
 
 Clone repository:
 
@@ -31,8 +31,6 @@ $ npm install
 ```
 
 ## Scripts
-
-## Available Scripts
 
 In the project directory, you can run:
 
