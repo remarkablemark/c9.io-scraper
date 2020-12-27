@@ -1,8 +1,6 @@
 # c9.io scraper
 
-[c9.io](https://c9.io/login) scraper built with [WebDriverJS](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs) ([Selenium](https://www.seleniumhq.org/) for [Node.js](https://nodejs.org/)).
-
-Initial code is from [`webdriverjs-recipes`](https://github.com/remarkablemark/webdriverjs-recipes).
+Web scraper for archived [c9.io](https://c9.io/login) projects. Built with [WebDriverJS](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs) ([Selenium](https://www.selenium.dev/) for [Node.js](https://nodejs.org/)). Bootstrapped from [`webdriverjs-recipes`](https://github.com/remarkablemark/webdriverjs-recipes).
 
 ## Prerequisites
 
@@ -38,13 +36,13 @@ In the project directory, you can run:
 
 The script logs into your [c9.io](https://c9.io/login) account, prepares all workspaces for download, and then downloads them.
 
-**Note**: before running the script, make sure to fill out the `.env` file. See example:
-
-```sh
-USERNAME=example # required
-PASSWORD=secret # required
-DOWNLOADS_DIR=/Users/user/Downloads/ # optional
-```
+> Before running the script, fill out `.env`. See example:
+>
+> ```sh
+> USERNAME=user123 # required
+> PASSWORD=pass456 # required
+> DOWNLOADS_DIR=/Users/user/Downloads/ # optional
+> ```
 
 If `DOWNLOADS_DIR` is not set, then it falls back to `$HOME/Downloads/`.
 
